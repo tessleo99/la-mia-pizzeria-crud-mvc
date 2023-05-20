@@ -26,7 +26,7 @@ namespace LaMiaPizzeriaNew.Controllers
         [HttpGet]
         public IActionResult Contacts()
         {
-            return View("Contacts");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

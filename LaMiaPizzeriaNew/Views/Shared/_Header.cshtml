@@ -1,6 +1,6 @@
 ﻿<nav class="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">
             <img src="~/img/pizzaIcon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
             La mia Pizzeria
         </a>
@@ -19,7 +19,10 @@
                     <a class="nav-link active" aria-current="page" href="@Url.Action("Index","Home")">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Contatti</a>
+                    <a class="nav-link active" aria-current="page" href="@Url.Action("Index","Pizza")">Menù</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Contacts","Home")">Contatti</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Privacy","Home")">Privacy</a>
