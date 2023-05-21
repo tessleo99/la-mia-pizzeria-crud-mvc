@@ -34,5 +34,50 @@ namespace LaMiaPizzeriaNew.Controllers
                 }
             }
         }
+
+        //CREATE
+        [HttpGet]
+        public IActionResult AddPizza()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AggiungiPizza(GustiPizza newPizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(newPizza);
+            }
+            else
+            {
+                using (PizzaContext db = new PizzaContext())
+                {
+                    db.GustiPizza.Add(newPizza);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+        }
+
+        //UPDATE
+        [HttpGet]
+        public IActionResult UpdatePizza(int id)
+        {
+            using (PizzaContext db = new PizzaContext())
+            {
+                GustiPizza? pizzaToUpdate = db.GustiPizza.Where(pizza => pizza.Id == id).FirstOrDefault();
+                if (pizzaToUpdate != null)
+                {
+                    return View(pizzaToUpdate);
+                }
+                else
+                {
+                    return NotFound("La pizza con questo id non esiste");
+                }
+            }
+        }
     }
 }
