@@ -18,6 +18,12 @@ namespace LaMiaPizzeriaNew.Models
 
         public float Price { get; set; }
 
+        public int? GustiPizzaCategoryId { get; set; }
+        public PizzaCategory? Category { get; set; }
+
+        public GustiPizza() { }
+
+
         public GustiPizza(string name, string description, string image, float price) 
         { 
             Name = name;
